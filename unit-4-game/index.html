@@ -1,0 +1,158 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crystal Game</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+
+var randomNumber = Math.floor((Math.random() * 20) + 30);
+var score = 0;
+var crystalOne = Math.floor((Math.random() * 10) + 1);
+var crystalTwo = Math.floor((Math.random() * 10) + 1);
+var crystalThree = Math.floor((Math.random() * 10) + 1);
+var crystalFour = Math.floor((Math.random() * 10) + 1);
+var wins = 0;
+var losses = 0; 
+var myFunction;
+var myFunction2;
+var winsLosses;
+
+
+$(document).ready(function(){
+
+  document.getElementById("random").innerHTML = randomNumber;
+
+  $("#first").click(function(){
+    score = score + crystalOne;
+    document.getElementById('score').innerHTML = score;
+    
+});
+
+  $("#second").click(function(){
+    score = score + crystalTwo;
+    document.getElementById('score').innerHTML = score;
+    
+  });
+
+  $("#third").click(function(){
+    score = score + crystalThree;
+    document.getElementById('score').innerHTML = score;
+    
+  });
+
+  $("#fourth").click(function(){
+    score = score + crystalFour;
+    document.getElementById('score').innerHTML = score;    
+    
+  });  
+  document.getElementById('wins').innerHTML = "Wins: " + wins;
+  document.getElementById('losses').innerHTML = "Losses: " + losses;
+     
+});
+
+console.log(score);
+console.log(randomNumber);
+
+</script>
+
+</head>
+<body>
+
+        <div class="jumbotron">
+                <h1 class="display-4">Crytal Collector</h1>
+                <p class="lead">You will be given a random number at the start of the game.</p>
+                <p class="lead">You are provided four crystals below.  By clicking on a crystal you will a random specific amount of points to your total score.</p>
+                <p class="lead">You will win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</p>
+                <p class="lead">The value of each crystal is hidden from you until you click on it</p>
+                <p class="lead">Each time when the game starts, the game will change the value of each crystal.</p>
+                <hr class="my-4">
+                
+                <a class="btn btn-primary btn-lg" href="#" role="button" onclick="myFunction()">Restart</a> 
+
+                <a class="btn btn-primary btn-lg" href="#" role="button" onclick="myFunction2()">Clear</a>      
+
+                <script type="text/javascript">
+
+                function myFunction() { 
+                  document.getElementById("random").innerHTML = Math.floor((Math.random() * 20) + 30); 
+                  crystalOne = Math.floor((Math.random() * 10) + 1);            
+                  crystalTwo = Math.floor((Math.random() * 10) + 1);
+                  crystalThree = Math.floor((Math.random() * 10) + 1);
+                  crystalFour = Math.floor((Math.random() * 10) + 1);
+                  score = 0;
+                  document.getElementById("score").innerHTML = score; 
+                                  
+                }
+
+                function myFunction2() {                  
+                  document.getElementById("random").innerHTML = 0;
+                  score = 0;
+                  document.getElementById("score").innerHTML = score;
+                }
+
+                function winsLosses() {
+                  if (score > 0 & score === randomNumber) {
+                    alert("you win")
+                  }
+                }
+
+                                               
+
+              </script>
+                
+              </div>
+
+              <p>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 id="random"></h5>
+                        <h5 class="card-title"></h5>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 id="wins"></h5>
+                        <h5 id="losses"></h5>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </p>
+
+        <img id="first" src="assets\images\First Crystal.jpg" class="rounded float-center" alt="...">
+        <img id="second" src="assets\images\Second Crystal.jpg" class="rounded float-center" alt="...">
+        <img id="third" src="assets\images\Third Crystal.jpg" class="rounded float-center" alt="...">
+        <img id="fourth" src="assets\images\Fourth Crystal.jpg" class="rounded float-center" alt="...">
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Your score is: </h5>
+                <h5 class="card-title"></h5>
+                </div>
+            </div>
+          </div>
+
+            <div class="col-sm-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 id="score">     </h5>
+                  <h5 class="card-title"></h5>
+                  </div>
+              </div>      
+    
+</body>
+
+</html>
